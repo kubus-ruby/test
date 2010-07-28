@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>On-line Store</title>
+        <%= stylesheet_link_tag "test", :media => "all" %>
+    </head>
+    <body id="store">
+        <div id="banner">
+            <%= image_tag("logo.jpg") %>
+            <%= @page_title || "On-line store" %>
+        </div>
+        <div id="columns">
+            <div id="side">
+                <a href="http://www....">Home</a><br />
+                <a href="http://www..../faq">Questions</a><br />
+                <a href="http://www..../news">News</a><br />
+                <a href="http://www..../contact">Contact</a><br />
+                <div id="time">
+                    <%= @time %>
+                </div> <br />
+            </div>
+            <div id="main">
+                <%= yield :layout %>
+            </div>
+        </div>
+    </body>
+</html>
