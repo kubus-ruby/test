@@ -7,7 +7,7 @@ class AddTestData < ActiveRecord::Migration
       This is a very good pistol for those who only studying how to kill.
       just try it out.
       </p>},
-    :image_url => 'C:\pics\foto_34182.jpg',
+    :image_url => '\foto_34182.jpg',
     :price => 200.50)
 
     Product.create(:title => 'Something',
@@ -15,7 +15,7 @@ class AddTestData < ActiveRecord::Migration
       %{<p>
       I don't know what it is. Maybe u should buy it and than write me.
       </p>},
-    :image_url => 'C:\pics\foto_29964.jpg',
+    :image_url => '\foto_29964.jpg',
     :price => 99.99)
     # . . .
   end
