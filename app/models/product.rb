@@ -5,19 +5,11 @@ class Product < ActiveRecord::Base
   validates_length_of :title, :minimum => 2,
                       :message => 'too short, should be 2 letters or more =)'
 
-  has_attached_file :photo, :styles => { :small => "150x150>" },
-                  :url  => "/assets/products/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
-
-has_attached_file :photo,
-    :styles => {
-      :thumb=> "100x100#",
-      :small  => "150x150>" }
-  
+  has_attached_file :photo, :styles => { :thumb=> "100x100#", :small  => "150x150>" }
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpg', 'image/png']
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
 protected
   def price_must_be_at_least_a_cent

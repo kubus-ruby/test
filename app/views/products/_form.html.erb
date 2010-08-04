@@ -1,0 +1,23 @@
+<% semantic_form_for @product do |f| %>
+  <%= f.error_messages %>
+  <p>
+   >
+    <%= f.input :title %>
+  </p>
+  <p>
+  
+    <%= f.input :description %>
+  </p>
+  <p>
+    
+    <%= f.input :price %>
+  </p>
+  <p>
+ 
+    <%= f.input :photo %>
+  </p>
+
+  <p><%= f.submit %></p>
+<% end %>
+
+

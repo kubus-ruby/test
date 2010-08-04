@@ -1,28 +1,36 @@
+<% title "Product" %>
+
 <p>
-  <b>Title:</b>
+  <strong>Title:</strong>
   <%=h @product.title %>
 </p>
-
 <p>
-  <b>Description:</b>
-  <%= @product.description %>
+  <strong>Description:</strong>
+  <%=h @product.description %>
 </p>
-
 <p>
-  <b>Photo:</b>
-  <%=h @product.photo_file_name %>
-</p>
-
-<p>
-  <b>Price:</b>
+  <strong>Price:</strong>
   <%=h @product.price %>
 </p>
-
 <p>
-  <b>Current photo:</b> </br>
-  <%=h image_tag( @product.photo_file_name) %>
+  <strong>Photo File Name:</strong>
+  <%=h @product.photo_file_name %>
+</p>
+<p>
+  <strong>Photo Content Type:</strong>
+  <%=h @product.photo_content_type %>
+</p>
+<p>
+  <strong>Photo File Size:</strong>
+  <%=h @product.photo_file_size %>
+</p>
+<p>
+  <strong>Photo Updated At:</strong>
+  <%=h @product.photo_updated_at %>
 </p>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<p>
+  <%= link_to "Edit", edit_product_path(@product) %> |
+  <%= link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", products_path %>
+</p>
