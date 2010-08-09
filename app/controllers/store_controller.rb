@@ -14,7 +14,10 @@ class StoreController < ApplicationController
    product = Product.find(params[:id])
    @cart = find_cart
    @cart.add_product(product)
-	 redirect_to_index
+	 respond_to do |format|
+			format.js
+	 end
+
  end
 
 	def empty_cart
@@ -27,7 +30,5 @@ class StoreController < ApplicationController
  def find_cart
     session[:cart] ||= Cart.new
  end
- 
-
 
 end
