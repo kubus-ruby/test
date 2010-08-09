@@ -5,10 +5,16 @@ class StoreController < ApplicationController
 		@cart = find_cart
   end
 
+	def redirect_to_index(msg = nil)
+		flash[:notice] = msg if msg
+		redirect_to :action => 'index'
+	end
+
  def add_to_cart
    product = Product.find(params[:id])
    @cart = find_cart
    @cart.add_product(product)
+	 redirect_to_index
  end
 
 	def empty_cart
