@@ -13,20 +13,8 @@
   <%=h @product.price %>
 </p>
 <p>
-  <strong>Photo File Name:</strong>
-  <%=h @product.photo_file_name %>
-</p>
-<p>
-  <strong>Photo Content Type:</strong>
-  <%=h @product.photo_content_type %>
-</p>
-<p>
-  <strong>Photo File Size:</strong>
-  <%=h @product.photo_file_size %>
-</p>
-<p>
-  <strong>Photo Updated At:</strong>
-  <%=h @product.photo_updated_at %>
+  <strong>Photo:</strong>
+  <%= image_tag @product.photo.url %>
 </p>
 
 <p>
