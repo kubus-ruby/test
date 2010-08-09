@@ -3,6 +3,12 @@ class StoreController < ApplicationController
     @products = Product.find_products_for_sale
     @time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
 		@cart = find_cart
+
+		if session[:counter].nil?
+      session[:counter] = 1
+    else
+      session[:counter] +=1
+    end
   end
 
 	def redirect_to_index(msg = nil)
@@ -14,6 +20,9 @@ class StoreController < ApplicationController
    product = Product.find(params[:id])
    @cart = find_cart
 	 @current_item = @cart.add_product(product)
+
+	 session[:counter] = nil
+
 	 respond_to do |format|
 			format.js if request.xhr?
 			format.html {redirect_to_index}
