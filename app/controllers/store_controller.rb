@@ -2,6 +2,7 @@ class StoreController < ApplicationController
   def index
     @products = Product.find_products_for_sale
     @time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+		@cart = find_cart
   end
 
  def add_to_cart
@@ -15,8 +16,6 @@ class StoreController < ApplicationController
 		flash[:notice] = "Your cart is currently empty"
 		redirect_to :action => 'index'
 	end
-
-
 
  private
  def find_cart

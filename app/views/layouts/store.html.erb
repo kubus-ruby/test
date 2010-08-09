@@ -12,13 +12,17 @@
         </div>
         <div id="columns">
             <div id="side">
-                <a href="http://www....">Home</a><br />
-                <a href="http://www..../faq">Questions</a><br />
-                <a href="http://www..../news">News</a><br />
-                <a href="http://www..../contact">Contact</a><br />
-                <div id="time">
-                    <%= @time %>
-                </div> <br />
+							<div id="cart">
+								<%= render(:partial => "cart" , :object => @cart) %>
+							</div>
+
+              <a href="http://www....">Home</a><br />
+              <a href="http://www..../faq">Questions</a><br />
+              <a href="http://www..../news">News</a><br />
+              <a href="http://www..../contact">Contact</a><br />
+              <div id="time">
+                  <%= @time %>
+              </div> <br />
             </div>
             <div id="main">
                 <%= yield :layout %>
