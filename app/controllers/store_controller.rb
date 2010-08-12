@@ -33,12 +33,10 @@ class StoreController < ApplicationController
 	def empty_cart
 		session[:cart] = nil
 		flash[:notice] = "Your cart is currently empty"
-#====================================
 		respond_to do |format|
 		  format.js if request.xhr?
       format.html{redirect_to_index}
 		end
-#====================================
 	end
 
 	def checkout
@@ -67,5 +65,9 @@ class StoreController < ApplicationController
  def find_cart
     session[:cart] ||= Cart.new
  end
+
+	protected
+	def authorize
+	end
 
 end
