@@ -40,6 +40,7 @@ before_filter :find_cart, :except => :empty_cart
 	end
 
 	def checkout
+		@hide_checkout = true
 		if @cart.items.empty?
 			redirect_to_index("Your cart is empty" )
 		else
