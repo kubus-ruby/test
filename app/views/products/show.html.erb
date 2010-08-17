@@ -22,3 +22,9 @@
   <%= link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", products_path %>
 </p>
+
+<h2>Comments</h2>
+<div id="comments">
+<%= render :partial => "products/comment", :locals => { :product => @product, :comments => @product.comments} %>
+</div>
+<%= link_to 'New comment', new_product_comment_path(@product, :reply_to => @product.comments.first) %>
