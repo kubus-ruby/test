@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     else
       render :action => 'new'
     end
+		comment = Comment.create(:product_id => @product.id, :name =>"0", :body => "0" )
   end
   
   def edit
