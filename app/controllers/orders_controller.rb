@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.all
+	@search = Order.search(params[:search])
+    @orders = @search.all
 
     respond_to do |format|
       format.html # index.html.erb

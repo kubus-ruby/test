@@ -2,11 +2,30 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
+    <th><%= order @search, :by => :name %></th>
+    <th><%= order @search, :by => :address %></th>
     <th>Email</th>
     <th>Pay type</th>
   </tr>
+
+<% form_for @search do |f| %>
+<p>
+	<%= f.label :name_like, "Name" %> </br>
+	<%= f.text_area :name_like, :rows => 1%></br>
+</p>
+<p>
+	<%= f.label :address_like, "Address" %> </br>
+	<%= f.text_area :address_like, :rows => 1%></br>
+</p>
+<p>
+	<%= f.label :pay_type, "Payment type" %> </br>
+	<%= f.select :pay_type, Order::PAYMENT_TYPES, :include_blank => true %></br>
+</p>
+<p>
+	<%= f.submit "search" %>
+</p>
+
+<% end %>
 
 <% @orders.each do |order| %>
   <tr>
