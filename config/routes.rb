@@ -9,6 +9,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :products
 
+	map.resources :products do |product| 
+  	product.resources :comments, :except => [:index]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
