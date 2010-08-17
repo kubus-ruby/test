@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  name: MyString
+  body: MyText
+  parent_id: 1
+  lft: 1
+  rgt: 1
+
+two:
+  product_id: 1
+  name: MyString
+  body: MyText
+  parent_id: 1
+  lft: 1
+  rgt: 1
