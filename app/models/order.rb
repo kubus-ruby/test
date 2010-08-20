@@ -1,6 +1,9 @@
 class Order < ActiveRecord::Base
 	has_many :line_items
 
+	after_save :send_notification
+
+
 	PAYMENT_TYPES = [
 	# Displayed stored in db
 		[ "Check" , "check" ],
@@ -19,5 +22,8 @@ class Order < ActiveRecord::Base
 		end
 	end
 
-
+protected
+	def send_notification
+		UserMailer.deliver_order_email(self)
+	end
 end

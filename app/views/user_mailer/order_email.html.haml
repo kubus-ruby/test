@@ -1,0 +1,5 @@
+%h1
+	="Hello, #{@order.name}"
+-@order.line_items.each do |item|
+	="title: #{item.product.title} quantity: #{item.quantity} * price: #{number_to_currency(item.product.price)} = #{item.total_price}"
+
