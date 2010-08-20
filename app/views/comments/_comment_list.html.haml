@@ -1,0 +1,5 @@
+#com
+	-if @product.comments.any?
+	%h1 Comments
+	%ul
+		= render @product.comments.select{|c| c.root?}, :product => @product, :comments => @product.comments

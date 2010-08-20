@@ -1,8 +1,0 @@
-<div id="com">
-  <% if @product.comments.any? %>
-  <h1>Comments</h1>
-  <ul>
-    <%= render @product.comments.select{|c| c.root?}, :product => @product, :comments => @product.comments %>
-  </ul>
-  <% end %>
-</div>
