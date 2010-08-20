@@ -1,10 +1,12 @@
 <h1>New comment</h1>
 
-<% semantic_form_for [@product, @comment] do |f| %>
-		<% f.inputs do %>
-		  <%= f.input :name %>
-		  <%= f.input :body %>
-			<%= f.input :parent_id, :as => :hidden, :value => params[:reply_to] %>
-		<% end %>
-    <%= f.buttons %>
+<% semantic_form_for [@product, @product.comments.new] do |f| %>
+	<% f.inputs do %>
+		<%= f.input :name %>
+		<%= f.input :body %>
+		<%= f.input :parent_id, :as => :hidden, :value => params[:reply_to] %>
+	<% end %>
+   <%= f.buttons %>
 <% end %>
+
+
