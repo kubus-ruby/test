@@ -1,9 +1,0 @@
-<ul>
-	<% comments.each_with_level(comments.root.descendants) do |comment, level| %>
-		<li style="padding-left:<%=30*level -%>px;">
-		   <strong><%= comment.name %> </strong><br />
-		   <%= comment.body %> <br />
-		   <%= link_to 'Reply', new_product_comment_path(product, :reply_to => comment.id) %><br /><br />
-		</li>
-	<% end %>
-</ul>
