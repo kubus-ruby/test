@@ -5,3 +5,6 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+User.create!(:name => 'admin', :password => 'admin')
+Product.create!(:price => 10, :title => 'Agile web development', :description => 'blablabla', :photo => File.open(File.join(Rails.root, 'db', 'fixtures', 'image.jpg')))
