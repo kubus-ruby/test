@@ -13,7 +13,9 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(params[:product])
+
     if @product.save
+			comment = Comment.create(:product_id => @product.id, :name => "root", :body => "root")
       flash[:notice] = "Successfully created product."
       redirect_to @product
     else

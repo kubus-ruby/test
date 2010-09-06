@@ -1,17 +1,17 @@
 %li
-	%strong 
-		=comment.name 
-	%br
-	= comment.body 
-	%br
-	= link_to_remote "Reply",
-		                         :update => "reply-#{dom_id(comment)}",
-		                         :url => new_product_comment_path(comment.product, :reply_to => comment.id),
-		                         :method => :get
-	%br
-	= content_tag :div, '', :id => "reply-#{dom_id(comment)}"
-	%ul
-		= render :partial => "comments/comment", :collection => comment.children
+ %strong 
+  =comment.name 
+ %br
+ = comment.body 
+ %br
+ = link_to_remote "Reply",:update => "reply-#{dom_id(comment)}",
+                          :url => new_product_comment_path(comment.product,
+                          :reply_to => comment.id),
+                          :method => :get
+ %br
+ = content_tag :div, '', :id => "reply-#{dom_id(comment)}"
+ %ul
+  = render :partial => "comments/comment", :collection => comment.children
 
 
 

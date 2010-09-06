@@ -1,4 +1,4 @@
-- form_remote_for [@product, @product.comments.new] do |f|
+- form_remote_for [comment.product, comment] do |f|
   = f.error_messages
   %p
     = f.label :name
@@ -9,6 +9,7 @@
     %br
     = f.text_area :body, :rows => 5, :cols => 35
   %p
-    = f.hidden_field :parent_id, :value => params[:reply_to]
+    - reply_to ||= comment.product.comments.first.id
+    = f.hidden_field :parent_id, :value => reply_to
   %p
     = f.submit 'Create'

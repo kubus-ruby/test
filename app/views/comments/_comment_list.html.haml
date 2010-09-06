@@ -1,5 +1,16 @@
-#com
-	-if @product.comments.any?
-	%h1 Comments
-	%ul
-		= render @product.comments.select{|c| c.root?}, :product => @product, :comments => @product.comments
+%div#product_comments
+  %ul
+    - product.comments.each_with_level(product.comments.root.descendants) do |comment, level|
+      %li{:style => "padding-left:#{20*level}px;"}
+        %b
+          = comment.name
+        %br
+        = comment.body
+        %br
+        = link_to_function "Reply", "$(this).next().toggle()"
+        %div{:id => "reply_to_comment_#{comment.id}", :style => "display:none"}
+          = render :partial => 'comments/new', :locals => { :reply_to => comment.id, :comment => @product.comments.new }
+        
+  %h1 New comment
+  %div{:id => "reply_to_comment_#{@product.comments.first.id}" }
+    = render :partial => 'comments/new', :locals => { :comment => @product.comments.new }

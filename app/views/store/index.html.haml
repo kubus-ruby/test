@@ -1,15 +1,15 @@
 ="Counter: " + pluralize(session[:counter], 'time', 'times').to_s if session[:counter]>5
 %h1 
-	Catalog
+ Catalog
 -for product in @products
-	.entry
-		= link_to image_tag(product.photo.url), :method =>:post
-		%h3
-			= product.title
-		= product.description
-		.price-line
-			%span.price
-				= number_to_currency(product.price, :unit =>"&pound;")
-			-form_remote_tag :url => { :action => 'add_to_cart', :id => product } do
-				= submit_tag "Add to Cart"
+ .entry
+  = link_to image_tag(product.photo.url), :method =>:post
+  %h3
+   = product.title
+  = product.description
+  .price-line
+   %span.price
+    = number_to_currency(product.price, :unit =>"&pound;")
+   -form_remote_tag :url => { :action => 'add_to_cart', :id => product } do
+    = submit_tag "Add to Cart"
 

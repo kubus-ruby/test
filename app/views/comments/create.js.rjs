@@ -1,3 +1,1 @@
-page.replace_html :com, :partial => 'comments/comment_list', :comments => @product.comments
-page.replace_html :notice, flash[:notice]
-flash.discard
+page.replace_html :product_comments, :partial => 'comment_list', :locals => {:product => @product}

@@ -8,3 +8,4 @@
 
 User.create!(:name => 'admin', :password => 'admin')
 Product.create!(:price => 10, :title => 'Agile web development', :description => 'blablabla', :photo => File.open(File.join(Rails.root, 'db', 'fixtures', 'image.jpg')))
+Comment.create!(:product_id => 1, :name => 'root', :body => 'root', :parent_id => nil, :lft => 1, :rgt => 2)

@@ -18,7 +18,5 @@
   = " | "
   = link_to "View All", products_path
 
-= render :partial => 'comments/comment_list'
-
-= render :partial => "comments/new", :locals => {:reply_to => @product.comments, :comment => @comment} 
+= render :partial => 'comments/comment_list', :locals => {:product => @product}
 
